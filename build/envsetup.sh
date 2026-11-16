@@ -46,6 +46,9 @@ function breakfast()
     local variant=$2
     source ${ANDROID_BUILD_TOP}/vendor/lineage/vars/aosp_target_release
 
+    # Normalize hyphens to underscores (e.g. kebab-mainline -> kebab_mainline)
+    target="${target//-/_}"
+
     if [ $# -eq 0 ]; then
         # No arguments, so let's have the full menu
         lunch
